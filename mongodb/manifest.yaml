@@ -12,20 +12,20 @@ spec:
  replicas: 1
  selector: 
   # using these labels replicaset selects the pod
-  matchLabels:
-    project: roboshop
-    tier: db
-    component: mongodb
-  template:
-    metadata:
-      lables:
-        project: roboshop
-        tier: db
-        component: mongodb
-    spec:
-      containers:
-       - name: mongodb 
-         image: varunkumarpinnam/mongodb:1.0.0
+    matchLabels:
+      project: roboshop
+      tier: db
+      component: mongodb
+    template:
+      metadata:
+        labels:
+          project: roboshop
+          tier: db
+          component: mongodb
+      spec:
+        containers:
+        - name: mongodb 
+          image: varunkumarpinnam/mongodb:1.0.0
 ---
 apiVersion: v1
 kind: Service
