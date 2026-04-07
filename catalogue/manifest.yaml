@@ -54,7 +54,7 @@ spec:
           failureThreshold: 2
           periodSeconds: 10
           initialDelaySeconds: 15
-        livenessProbe::
+        livenessProbe:
           httpGet:
             path: /health
             port: 8080
