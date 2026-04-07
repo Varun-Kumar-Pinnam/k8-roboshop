@@ -10,7 +10,7 @@ metadata:
 data:
   MONGO: "true"
   MONGO_URL: "mongodb://mongodb:27017/catalogue"
-  
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: catalogue 
-        image: varunkumarpinnam/catalogue:1.0.0
+        image: varunkumarpinnam/catalogue:1.2.0
         imagePullPolicy: Always # safe to pull everytime, there may be images with same version rebuilt and pushed
         resources:
           requests:
