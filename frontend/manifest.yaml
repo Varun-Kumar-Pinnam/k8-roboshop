@@ -97,6 +97,10 @@ spec:
         tier: frontend
         component: frontend
     spec:
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: frontend
       containers:
       - name: frontend 
         image: varunkumarpinnam/frontend:1.2.0
