@@ -127,8 +127,7 @@ spec:
         volumeMounts:
         - name: nginx-config
           # by default it mounts and thinks as directory
-          mountPath: "/etc/nginx/nginx.conf"
-          subPath: nginx.conf
+          mountPath: /etc/nginx/
           readOnly: true
       
 ---
