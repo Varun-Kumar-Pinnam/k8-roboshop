@@ -43,11 +43,11 @@ spec:
         imagePullPolicy: Always # safe to pull everytime, there may be images with same version rebuilt and pushed
         resources:
           requests:
-            memory: "256Mi"
-            cpu: "200m"
+            memory: "300Mi"
+            cpu: "250m"
           limits:
-            memory: "256Mi"
-            cpu: "200m"        
+            memory: "300Mi"
+            cpu: "250m"        
         readinessProbe:
           tcpSocket:
             port: 8080
