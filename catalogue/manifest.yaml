@@ -10,6 +10,7 @@ metadata:
 data:
   MONGO: "true"
   MONGO_URL: "mongodb://mongodb:27017/catalogue"
+  
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -40,6 +41,29 @@ spec:
       - name: catalogue 
         image: varunkumarpinnam/catalogue:1.0.0
         imagePullPolicy: Always # safe to pull everytime, there may be images with same version rebuilt and pushed
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "150Mi"
+            cpu: "150m"        
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          failureThreshold: 2
+          periodSeconds: 10
+          initialDelaySeconds: 15
+        livenessProbe::
+          httpGet:
+            path: /health
+            port: 8080
+          failureThreshold: 2
+          periodSeconds: 10
+        envFrom:
+        - configMapRef:
+           name: catalogue
+      
 ---
 apiVersion: v1
 kind: Service
